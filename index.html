@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Chic Fashion Finds</title>
+
+    <meta name="description"
+          content="Discover stylish fashion, beauty essentials and trending products at great prices.">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            margin: 0;
+            background-color: #fff8fb;
+            color: #333;
+        }
+
+        h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+            color: #d63384;
+        }
+
+        h2 {
+            font-size: 24px;
+            margin: 15px 0;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #d63384;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #ad1457;
+        }
+
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .product {
+            background-color: white;
+            border: 1px solid #eee;
+            padding: 20px;
+            width: 100%;
+            max-width: 350px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px #00000012;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .product:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 14px #00000020;
+        }
+
+        .product h2 {
+            font-size: 21px;
+        }
+
+        .main-image {
+            width: 100%;
+            max-width: 300px;
+            height: 180px;
+            object-fit: contain;
+            border-radius: 10px;
+            margin: 15px auto;
+        }
+
+        .price {
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .shop-button {
+            display: inline-block;
+            background-color: #ff69b4;
+            color: white;
+            padding: 12px 28px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .shop-button:hover {
+            background-color: #d63384;
+            transform: scale(1.03);
+        }
+
+        #contact,
+        .portfolio-card {
+            background-color: white;
+            margin: 30px auto;
+            padding: 22px;
+            width: 100%;
+            max-width: 600px;
+            border: 1px solid #eee;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px #00000012;
+        }
+
+        #contact a {
+            color: #d63384;
+        }
+
+        button {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            opacity: 0.85;
+            transform: scale(1.02);
+        }
+
+        .welcome-button,
+        #customerForm button {
+            background-color: #d63384;
+            color: white;
+            font-weight: bold;
+        }
+
+        #changeButton {
+            background-color: darkgreen;
+            color: white;
+            margin: 10px;
+        }
+
+        #customerForm {
+            margin: 25px auto;
+            width: 100%;
+            max-width: 450px;
+        }
+
+        #customerForm label {
+            display: block;
+            text-align: left;
+            margin-top: 15px;
+        }
+
+        #customerForm input {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            margin: 8px auto 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        #formError {
+            color: red;
+        }
+
+        #formResult {
+            overflow-wrap: anywhere;
+        }
+
+        .section-title {
+            color: #d63384;
+            margin-top: 40px;
+        }
+
+        .project-card {
+            background-color: white;
+            padding: 20px;
+            margin: 20px auto;
+            width: 100%;
+            max-width: 600px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border: 1px solid #f3c2d8;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        footer {
+            margin-top: 40px;
+            padding: 15px;
+            font-size: 14px;
+            color: #777;
+            border-top: 1px solid #f3c2d8;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 12px;
+            }
+
+            h1 {
+                font-size: 26px;
+            }
+
+            h2 {
+                font-size: 21px;
+            }
+
+            .product {
+                padding: 15px;
+            }
+
+            .main-image {
+                height: 160px;
+            }
+
+            #contact,
+            .portfolio-card,
+            .project-card {
+                padding: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#fashion">Fashion</a>
+        <a href="#beauty">Beauty</a>
+        <a href="#contact">Contact</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#client-work">Client Work</a>
+    </nav>
+
+    <!-- Website Header -->
+    <header id="home">
+        <h1>Chic Fashion Finds</h1>
+
+        <h2>Shop Latest Beauty &amp; Fashion Finds ✨</h2>
+
+        <p>
+            Discover stylish fashion, beauty essentials and
+            trending products at great prices.
+        </p>
+
+        <p>Find your next favourite product — Shop Now! 🛍️</p>
+    </header>
+
+    <!-- Products -->
+    <div class="product-container">
+
+        <!-- Product 1 -->
+        <div class="product" id="fashion">
+            <h2>Whiteheads &amp; Blackheads Removal Tool</h2>
+
+            <a href="https://s.click.aliexpress.com/e/_c3d5XGnB"
+               target="_blank"
+               rel="noopener noreferrer">
+
+                <img
+                    src="https://i.ibb.co/zW52YKR9/In-Shot-20260923-132750862.jpg"
+                    alt="Facial cleansing tool"
+                    class="main-image">
+            </a>
+
+            <p>
+                An easy-to-use facial cleansing tool for your
+                daily skincare routine.
+            </p>
+
+            <p class="price">Price: PKR 322.61</p>
+
+            <a class="shop-button"
+               href="https://s.click.aliexpress.com/e/_c3d5XGnB"
+               target="_blank"
+               rel="noopener noreferrer">
+                Shop Now
+            </a>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product">
+            <h2 id="productTitle">
+                Thin Long Sleeve U-Neck See-through Crop Top
+            </h2>
+
+            <img
+                id="productImage"
+                src="https://i.ibb.co/xy86WBw/In-Shot-20260923-135356965.jpg"
+                alt="U-Neck Crop Top"
+                class="main-image">
+
+            <p>
+                A stylish and trendy top for a fashionable
+                everyday look.
+            </p>
+
+            <p class="price" id="productPrice">
+                Price: PKR 2,998
+            </p>
+
+            <a class="shop-button"
+               href="https://s.click.aliexpress.com/e/_c2IxaK2h"
+               target="_blank"
+               rel="noopener noreferrer">
+                Shop Now
+            </a>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product" id="beauty">
+            <h2>Elf Glitter Lip Oil &amp; Liquid Blusher</h2>
+
+            <img
+                src="https://i.ibb.co/S7GvjYFg/In-Shot-20260924-131415367.jpg"
+                alt="Lip oil and liquid blusher"
+                class="main-image">
+
+            <p>
+                A beautiful beauty essential for a fresh,
+                glowing makeup look.
+            </p>
+
+            <p class="price">Price: PKR 308</p>
+
+            <a class="shop-button"
+               href="https://s.click.aliexpress.com/e/_c3Dpiz69"
+               target="_blank"
+               rel="noopener noreferrer">
+                Shop Now
+            </a>
+        </div>
+
+    </div>
+
+    <!-- Contact and JavaScript Practice -->
+    <section id="contact">
+        <h2>Contact Us</h2>
+
+        <p>
+            <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=jabeen7056@gmail.com"
+               target="_blank"
+               rel="noopener noreferrer">
+                jabeen7056@gmail.com
+            </a>
+        </p>
+
+        <button class="welcome-button"
+                type="button"
+                onclick="welcomeMessage()">
+            Welcome
+        </button>
+
+        <p id="jsMessage">JavaScript Practice ✨</p>
+
+        <button id="changeButton" type="button">
+            Change Product
+        </button>
+
+        <p>
+            Note: The Change Product button is for JavaScript
+            practice. It changes the second product's display
+            temporarily; it does not change the shopping link.
+        </p>
+    </section>
+
+    <!-- Customer Form -->
+    <section>
+        <h2 class="section-title">Customer Form</h2>
+
+        <form id="customerForm">
+
+            <label for="customerName">Your Name:</label>
+            <input
+                type="text"
+                id="customerName"
+                placeholder="Enter your name"
+                minlength="3"
+                required>
+
+            <label for="customerEmail">Your Email:</label>
+            <input
+                type="email"
+                id="customerEmail"
+                placeholder="Enter your email"
+                required>
+
+            <label for="customerPhone">Your Phone Number:</label>
+            <input
+                type="tel"
+                id="customerPhone"
+                placeholder="03XXXXXXXXX"
+                pattern="03[0-9]{9}"
+                title="Enter an 11-digit Pakistani mobile number starting with 03"
+                required>
+
+            <button type="submit">Submit</button>
+        </form>
+
+        <p id="formError" role="alert"></p>
+        <div id="formResult"></div>
+    </section>
+
+    <!-- Portfolio -->
+    <section id="portfolio">
+
+        <h1 class="section-title">My Web Development Portfolio</h1>
+
+        <p>
+            I create simple, beautiful and mobile-friendly
+            websites for businesses.
+        </p>
+
+        <!-- Project 1 -->
+        <div class="portfolio-card">
+            <h2>Project 1: Chic Fashion Finds</h2>
+
+            <p>
+                I created a fashion and beauty website using
+                HTML, CSS, and JavaScript. It includes product
+                sections, shopping links, buttons, and a contact form.
+            </p>
+
+            <p>
+                <strong>Skills used:</strong>
+                HTML, CSS and JavaScript
+            </p>
+
+            <a class="shop-button"
+               href="https://smartwaysearning26.blogspot.com/"
+               target="_blank"
+               rel="noopener noreferrer">
+                View My Website 🛍️
+            </a>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card">
+            <h3>Project 2: Product Description Writing</h3>
+
+            <p>
+                I write attractive product titles and descriptions
+                for fashion and beauty products.
+            </p>
+
+            <p>
+                <strong>Skills:</strong>
+                Product titles, benefits and promotional writing.
+            </p>
+        </div>
+
+    </section>
+
+    <!-- Client Work -->
+    <section id="client-work">
+
+        <h1 class="section-title">Client Work</h1>
+
+        <div class="portfolio-card">
+            <h2>Website Design Services</h2>
+
+            <p>
+                I can create simple business pages, product
+                showcases and contact forms for clients.
+            </p>
+
+            <p>
+                This section will display completed client
+                projects as I gain experience.
+            </p>
+
+            <a class="shop-button"
+               href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=jabeen7056@gmail.com"
+               target="_blank"
+               rel="noopener noreferrer">
+                Contact Me
+            </a>
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Chic Fashion Finds</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        let productName = "Face Wash";
+        const websiteName = "Chic Fashion Finds";
+
+        function welcomeMessage() {
+            alert(
+                websiteName + " - My product is " + productName
+            );
+        }
+
+        // Product object for JavaScript practice
+        let fashionProduct = {
+            name: "CeraVe Night Cream",
+            price: 799,
+            category: "Beauty",
+            brand: "CeraVe",
+
+            updatePrice: function(newPrice) {
+                this.price = newPrice;
+            }
+        };
+
+        // Change Product button
+        document.getElementById("changeButton").onclick =
+            function() {
+
+                fashionProduct.updatePrice(899);
+                fashionProduct.brand = "CeraVe Skin";
+                fashionProduct.name =
+                    "CeraVe Night Cream Premium";
+
+                document.getElementById("productTitle").innerText =
+                    fashionProduct.name;
+
+                document.getElementById("productPrice").innerText =
+                    "Price: PKR " + fashionProduct.price;
+
+                const image =
+                    document.getElementById("productImage");
+
+                image.src =
+                    "https://i.ibb.co/QFTLfzMM/In-Shot-20260930-045305442.jpg";
+
+                image.alt = fashionProduct.name;
+                image.style.border = "3px solid pink";
+                image.style.borderRadius = "20px";
+
+                document.getElementById("jsMessage").innerHTML =
+                    "Updated Product: " + fashionProduct.name +
+                    "<br>Updated Price: PKR " + fashionProduct.price +
+                    "<br>Brand: " + fashionProduct.brand;
+
+                this.innerText = "Product Changed ✅";
+            };
+
+        // Click the second product image to hide or show it
+        document.getElementById("productImage").onclick =
+            function() {
+
+                if (this.style.display === "none") {
+                    this.style.display = "inline-block";
+                } else {
+                    this.style.display = "none";
+                }
+            };
+
+        // Customer form validation
+        document.getElementById("customerForm").onsubmit =
+            function(event) {
+
+                event.preventDefault();
+
+                const error =
+                    document.getElementById("formError");
+
+                const result =
+                    document.getElementById("formResult");
+
+                error.innerText = "";
+                result.innerHTML = "";
+
+                const name =
+                    document.getElementById("customerName")
+                    .value.trim();
+
+                const email =
+                    document.getElementById("customerEmail")
+                    .value.trim();
+
+                const phone =
+                    document.getElementById("customerPhone")
+                    .value.trim();
+
+                if (name.length < 3) {
+                    error.innerText =
+                        "Please enter your full name.";
+                    return;
+                }
+
+                if (!/^03[0-9]{9}$/.test(phone)) {
+                    error.innerText =
+                        "Please enter a valid 11-digit Pakistani mobile number.";
+                    return;
+                }
+
+                const heading = document.createElement("h3");
+                heading.innerText = "Thank you, " + name + "!";
+
+                const emailText = document.createElement("p");
+                emailText.innerText = "Email: " + email;
+
+                const phoneText = document.createElement("p");
+                phoneText.innerText = "Phone: " + phone;
+
+                result.appendChild(heading);
+                result.appendChild(emailText);
+                result.appendChild(phoneText);
+
+                this.reset();
+            };
+    </script>
+
+</body>
+</html>
